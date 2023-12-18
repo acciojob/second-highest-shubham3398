@@ -10,15 +10,30 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			let highest = Number.MIN_SAFE_INTEGER;
+			let SecondHighest = Number.MIN_SAFE_INTEGER;
+
+			for(let i of arr){
+				if(i > highest){
+					secondHighest = highest;
+					highest = i;
+					
+				}
+				else if(secondHighest < i && highest > i){
+					secondHighest = i;
+				}
+			}
+			return secondHighest;
 			
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
+			// var n = prompt("Enter the number of elements");
+			// var arr = [];
+			// for (var i = 0; i < n; i++) {
+			// 	arr[i] = prompt("Enter element " + (i+1));
+			// }
+			let arr = [5, 1,2 ,3, 4];
 			alert(secondHighest(arr));
 		}
 		Main();
